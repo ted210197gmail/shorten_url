@@ -18,9 +18,7 @@ describe('Unit test for shortenUrl', function () {
         const longUrl = 'https://google.com';
         const expectedResult = {
             "statusCode": 301,
-            "headers": {
-                "location": longUrl,
-            },
+            "location": longUrl,
         };
         jest.spyOn(dbService, 'getLongUrl').mockReturnValue(longUrl);
         const result = await operation.redirect(longUrl);

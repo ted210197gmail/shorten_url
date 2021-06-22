@@ -1,35 +1,28 @@
 {
-  "name": "hello_world",
+  "name": "shorten_url",
   "version": "1.0.0",
-  "description": "hello world sample for NodeJS",
-  "main": "app.js",
-  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
-  "author": "SAM CLI",
+  "description": "Shorten url service",
+  "main": "index.js",
+  "repository": "https://github.com/ted210197gmail/shorten_url",
+  "author": "Ted",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.931.0",
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "test": "jest --config=jest.config.test.js",
-    "integ-test": "jest --config=jest.config.integ.test.js",
-    "start-local": "sam local start-api -t ../template.yaml",
-    "compile": "tsc"
+    "test": "jest --config=jest.config.test.js"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/aws-lambda": "^8.10.51",
     "@types/jest": "^26.0.14",
     "@types/node": "^13.13.5",
-    "axios": "^0.20.0",
     "babel-jest": "^26.3.0",
     "eslint": "^7.29.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.24.0",
     "jest": "^26.4.2",
-    "mockdate": "^3.0.5",
-    "typescript": "^3.8.3"
+    "mockdate": "^3.0.5"
   }
 }
