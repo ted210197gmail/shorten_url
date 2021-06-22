@@ -1,4 +1,4 @@
-const dbService = require('../../../src-ts/url-shortener-delete/rds');
+const dbService = require('../../../lambda/url-shortener-delete/rds');
 
 describe('Unit test for checkDataExist', function() {
   afterEach(() => {

@@ -1,5 +1,5 @@
-const app = require('../../../src-ts/url-shortener-post/index');
-const operation = require('../../../src-ts/url-shortener-post/operation');
+const app = require('../../../lambda/url-shortener-post/index');
+const operation = require('../../../lambda/url-shortener-post/operation');
 
 describe('Unit test for exports handler', function () {
     afterEach(() => {

@@ -1,5 +1,5 @@
-const operation = require('../../../src-ts/url-shortener-post/operation');
-const dbService = require('../../../src-ts/url-shortener-post/rds');
+const operation = require('../../../lambda/url-shortener-post/operation');
+const dbService = require('../../../lambda/url-shortener-post/rds');
 
 describe('Unit test for shortenUrl', function() {
   afterEach(() => {

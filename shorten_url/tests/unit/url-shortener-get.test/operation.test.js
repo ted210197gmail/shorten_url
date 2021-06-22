@@ -1,5 +1,5 @@
-const operation = require('../../../src-ts/url-shortener-get/operation');
-const dbService = require('../../../src-ts/url-shortener-get/rds');
+const operation = require('../../../lambda/url-shortener-get/operation');
+const dbService = require('../../../lambda/url-shortener-get/rds');
 
 function returnHttpError(status, message) {
     return {

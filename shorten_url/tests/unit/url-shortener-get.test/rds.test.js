@@ -1,4 +1,4 @@
-const dbService = require('../../../src-ts/url-shortener-get/rds');
+const dbService = require('../../../lambda/url-shortener-get/rds');
 
 describe('Unit test for getLongUrl', function () {
     afterEach(() => {

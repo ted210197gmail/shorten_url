@@ -1,5 +1,5 @@
-const app = require('../../../src-ts/url-shortener-delete/index');
-const operation = require('../../../src-ts/url-shortener-delete/operation');
+const app = require('../../../lambda/url-shortener-delete/index');
+const operation = require('../../../lambda/url-shortener-delete/operation');
 
 describe('Unit test for exports handler', function() {
   afterEach(() => {
