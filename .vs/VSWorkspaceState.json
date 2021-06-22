@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\hello-world",
+    "\\hello-world\\src-ts",
+    "\\hello-world\\src-ts\\url-shortener-get",
+    "\\hello-world\\src-ts\\url-shortener-post",
+    "\\hello-world\\tests",
+    "\\hello-world\\tests\\unit",
+    "\\hello-world\\tests\\unit\\url-shortener-get.test",
+    "\\hello-world\\tests\\unit\\url-shortener-post.test"
+  ],
+  "SelectedNode": "\\.gitignore",
+  "PreviewInSolutionExplorer": false
+}
