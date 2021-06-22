@@ -1,4 +1,4 @@
-const app = require('../../../lambda/url-shortener-delete/index');
+const index = require('../../../lambda/url-shortener-delete/index');
 const operation = require('../../../lambda/url-shortener-delete/operation');
 
 describe('Unit test for exports handler', function() {
@@ -19,8 +19,8 @@ describe('Unit test for exports handler', function() {
       'headers': {'Content-Type': 'application/json'},
       'body': JSON.stringify('Successfully delete the id'),
     };
-      jest.spyOn(operation, 'deleteUrl').mockReturnValue(expectedResult);
-    const result = await app.handler(event);
+    jest.spyOn(operation, 'deleteUrl').mockReturnValue(expectedResult);
+    const result = await index.handler(event);
     expect(result).toEqual(expectedResult);
   });
 });

@@ -4,8 +4,8 @@ const dbService = require('../../../lambda/url-shortener-delete/rds');
 function returnHttpError(status, message) {
     return {
         statusCode: status,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'message': message }),
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'message': message}),
     };
 }
 
@@ -44,7 +44,7 @@ describe('Unit test for shortenUrl', function() {
         returnHttpError(500, `Internal error when checking whether - ${id} exists.`));
   });
 
-  it('Verifies successful response', async () => {
+  it('The given id does not exist in database', async () => {
       const id = 'CDxFbuEwb001';
       const expectedResult = {
           statusCode: 200,
@@ -58,7 +58,7 @@ describe('Unit test for shortenUrl', function() {
       jest.clearAllMocks();
   });
 
-    it('Internal error when deleting id in db', async () => {
+  it('Internal error when deleting id in db', async () => {
       const id = 'CDxFbuEwb001';
       const expectedResult = {
           statusCode: 200,

@@ -1,7 +1,3 @@
-module.exports = {
-  deleteUrl,
-};
-
 const dbService = require('./rds');
 
 function returnHttpError(status, message) {
@@ -40,3 +36,7 @@ async function deleteUrl(id) {
     body: JSON.stringify(`Successfully delete the id - ${id}`),
   };
 }
+
+module.exports = {
+  deleteUrl,
+};
