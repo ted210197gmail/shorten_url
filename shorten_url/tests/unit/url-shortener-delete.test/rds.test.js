@@ -20,16 +20,16 @@ describe('Unit test for checkDataExist', function() {
   });
 });
 
-describe('Unit test for deleteData', function () {
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+describe('Unit test for deleteData', function() {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-    it('Verifies successful response on not existing data', async () => {
-        const id = 'not exist';
-        const result = await dbService.deleteData(id);
-        const expectedResult = {"generatedFields": [], "numberOfRecordsUpdated": 0};
-        expect(result).toEqual(expectedResult);
-        jest.clearAllMocks();
-    });
+  it('Verifies successful response on not existing data', async () => {
+    const id = 'not exist';
+    const result = await dbService.deleteData(id);
+    const expectedResult = {'generatedFields': [], 'numberOfRecordsUpdated': 0};
+    expect(result).toEqual(expectedResult);
+    jest.clearAllMocks();
+  });
 });

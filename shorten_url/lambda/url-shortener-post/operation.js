@@ -94,6 +94,6 @@ async function shortenUrl(longURL, expireAt) {
 }
 
 module.exports = {
-    shortenUrl,
-    returnHttpError,
+  shortenUrl,
+  returnHttpError,
 };

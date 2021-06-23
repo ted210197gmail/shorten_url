@@ -33,7 +33,7 @@ async function executeSql(sqlCmd) {
  * Check if the correspondent data of given shorten url id exists.
  *
  * @param {string} id The given shorten url id.
- * @return {string} The long url.
+ * @return {string} True if data exists. False if not.
  * @throws {Error} The error thrown by executeStatement. Please refer https://amzn.to/3gJWRmr.
  */
 async function checkDataExist(id) {
