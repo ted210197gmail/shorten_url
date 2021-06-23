@@ -37,8 +37,8 @@ The unit test engine is Jest 26.0.14. Please run the command:
 npm run test
 ```
 
-## End to end test (system test)
-The execution file for system test is shorten_url/tests/end_to_end/system_test.sh
+## End to End Test (System Test)
+The execution file for system test is ```shorten_url/tests/end_to_end/system_test.sh```
 Please run the command in Linux/Unix environment:
 ```
 ./system_test.sh
