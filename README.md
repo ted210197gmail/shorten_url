@@ -2,8 +2,9 @@
 This is the service for URL shorten and redirection.
 
 ## Run
-It supports three RESTful methods - POST, GET, and DELETE
-Note: please do NOT send too many requests to this service, as the RDS is very expensive and I am not a rich engineer... :(
+It supports three RESTful methods - POST, GET, and DELETE.
+
+*** Note: please do NOT send too many requests to this service, as the RDS is very expensive and I am not a rich engineer... :( ***
 ```
 # POST request for shortening URL
 curl -X POST -H "Content-Type:application/json" https://api.awstiny.com/modify -d '{"url": "https://www.google.com", "expireAt": "2030-02-08 09:20:41" }'
