@@ -4,12 +4,15 @@ const rdsDataService = new AWS.RDSDataService();
 
 const DATABASE_NAME = 'shortenurldemo';
 const TABLE_NAME = 'shorten_url';
+const LONG_URL_COL = 'long_url';
 const SHORT_URL_ID_COL = 'short_url_id';
+const EXPIRE_TIME_COL = 'expire_time';
 const DB_CLUSTER_ARN = 'arn:aws:rds:eu-west-1:145997657428' +
     ':cluster:shortenurldemo';
 const DB_CRED_SECRET_STORE_ARN = 'arn:aws:secretsmanager:eu-west-1:' +
     '145997657428:secret:rds-db-credentials/' +
     'cluster-NWAXENSTTPLC7KFYY3X3XPRRHQ/admin-HZfsJA';
+
 /**
  * Execute RDS with given SQL command.
  *
@@ -30,10 +33,10 @@ async function executeSql(sqlCmd) {
 }
 
 /**
- * Get the correspondent long url by given shorten url id.
+ * Get the correspondent long url by given shortened url id.
  *
  * @param {string} id The given shorten url id.
- * @return {string} The long url.
+ * @return {string} The long url if exists. Null if not exists.
  * @throws {Error} The error thrown by executeStatement. Please refer https://amzn.to/3gJWRmr.
  */
 async function getLongUrl(id) {

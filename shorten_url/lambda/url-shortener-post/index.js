@@ -1,10 +1,10 @@
 const operation = require('./operation');
 
 /**
- * Get the HTTP body from given event.
+ * Get the HTTP body from the given event.
  *
- * @param {JSON} event The even provided to Lambda.
- * @returns {JavaScript object} The object contains body data.
+ * @param {JSON} event The event object passed to Lambda.
+ * @returns {JavaScript object} The object contains body data -
  * url and expireAt data if exist.
  * @throws {Error} The error if event's body does not exist.
  */

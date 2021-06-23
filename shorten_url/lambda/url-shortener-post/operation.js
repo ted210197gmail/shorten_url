@@ -28,8 +28,8 @@ function validateTimeStamp(timeStamp) {
 /**
  * Convert the shorten url id to url
  *
- * @param {string} id The given shorten url id
- * @return {string} The proper url with proper domain name and id as path.
+ * @param {string} id The given shortened url id
+ * @return {string} The proper url with proper domain name and id as its path.
  */
 function convertToUrl(id) {
   return `https://${DOMAIN_NAME}/${id}`;
@@ -56,26 +56,26 @@ function returnHttpError(status, message) {
  * @param {string} longURL The given url that is required to be shortened.
  * @param {string} expireAt The expire time of this url.
  * @return {JSON Object} The HTTP response with status code as following,
- * 400 - if missing url or expire time
- * 422 - if the given url is not valid
- * 422 - if the given url has been shortened.
- * 422 - if the given expire time it not valid
- * 500 - failed to insert data into RDS
- * 200 - successfully shorten the url and store data into RDS
+ * 400 - if missing url or expire time.
+ * 400 - if the given url is not valid.
+ * 400 - if the given url has been shortened.
+ * 400 - if the given expire time it not valid
+ * 500 - failed to insert data into RDS.
+ * 200 - successfully shorten the url and store data into RDS.
  */
 async function shortenUrl(longURL, expireAt) {
   if (longURL == null || expireAt == null) {
     return returnHttpError(400, 'Missing Url or expire time.');
   }
   if (stringIsAValidUrl(longURL) == false) {
-    return returnHttpError(422, `The given URL - ${longURL} is not valid.`);
+    return returnHttpError(400, `The given URL - ${longURL} is not valid.`);
   }
   if (longURL.includes(DOMAIN_NAME)) {
-    return returnHttpError(422,
+    return returnHttpError(400,
         'You cannot shorten the Url created from this service.');
   }
   if (validateTimeStamp(expireAt) == false) {
-    return returnHttpError(422, 'The given expire time is not valid.');
+    return returnHttpError(400, 'The given expire time is not valid.');
   }
   const id = Date.now().toString(36);
   try {

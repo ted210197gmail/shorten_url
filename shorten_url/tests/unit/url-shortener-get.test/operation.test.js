@@ -2,7 +2,7 @@ const operation = require('../../../lambda/url-shortener-get/operation');
 const dbService = require('../../../lambda/url-shortener-get/rds');
 
 /**
- * Return Http response with status code and proper message in body.
+ * Return Http response with status code and proper message.
  *
  * @param {string} status The status code of Http response.
  * @param {string} message The error message.

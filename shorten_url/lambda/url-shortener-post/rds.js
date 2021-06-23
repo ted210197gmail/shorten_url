@@ -54,5 +54,4 @@ async function insertData(longURL, shortURLId, expireAt) {
 
 module.exports = {
   insertData,
-  executeSql, // export it for unit test
 };

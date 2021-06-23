@@ -1,7 +1,7 @@
 const dbService = require('./rds.js');
 
 /**
- * Return Http response with status code and proper message in body.
+ * Return Http response with status code and proper message.
  *
  * @param {string} status The status code of Http response.
  * @param {string} message The error message.
@@ -16,9 +16,9 @@ function returnHttpError(status, message) {
 }
 
 /**
- * Redirect to the page according to the given id
+ * Redirect to the page according to the given shortened id.
  *
- * @param {string} id The given shortened url id that is required to be deleted.
+ * @param {string} id The given shortened url id that is required for redirection.
  * @return {JSON Object} The HTTP response with status code as following,
  * 400 - Failed to get id from given url.
  * 500 - Failed to get url from database.

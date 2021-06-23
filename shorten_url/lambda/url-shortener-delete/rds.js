@@ -30,7 +30,7 @@ async function executeSql(sqlCmd) {
 }
 
 /**
- * Check if the correspondent data of given shorten url id exists.
+ * Check if the correspondent data of given shorten url id exists in database.
  *
  * @param {string} id The given shorten url id.
  * @return {string} True if data exists. False if not.
@@ -44,7 +44,7 @@ async function checkDataExist(id) {
 }
 
 /**
- * Delete the correspondent data of given shorten url id exists.
+ * Delete the correspondent data of given shorten url id.
  *
  * @param {string} id The given shorten url id.
  * @return {object} The object returned by RDS executeStatement.

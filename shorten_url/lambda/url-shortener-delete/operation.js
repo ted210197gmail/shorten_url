@@ -1,7 +1,7 @@
 const dbService = require('./rds');
 
 /**
- * Return Http response with status code and proper message in body.
+ * Return Http response with status code and proper message.
  *
  * @param {string} status The status code of Http response.
  * @param {string} message The error message.
@@ -16,7 +16,7 @@ function returnHttpError(status, message) {
 }
 
 /**
- * Delete the given Url and store the data into RDS
+ * Delete the given Url and store the data (longUrl, shortId, expireAt) into RDS
  *
  * @param {string} id The given shortened url id that is required to be deleted.
  * @return {JSON Object} The HTTP response with status code as following,

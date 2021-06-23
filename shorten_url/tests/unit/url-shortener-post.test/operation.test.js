@@ -45,7 +45,7 @@ describe('Unit test for shortenUrl', function() {
     const longUrl = '123';
     const expireAt = '2021-02-08 09:20:41';
     const result = await operation.shortenUrl(longUrl, expireAt);
-    expect(result).toEqual(operation.returnHttpError(422,
+    expect(result).toEqual(operation.returnHttpError(400,
         `The given URL - ${longUrl} is not valid.`));
   });
 
@@ -53,7 +53,7 @@ describe('Unit test for shortenUrl', function() {
     const longUrl = 'https://api.awstiny.com/t/iax11tej';
     const expireAt = '2021-02-08 09:20:41';
     const result = await operation.shortenUrl(longUrl, expireAt);
-    expect(result).toEqual(operation.returnHttpError(422,
+    expect(result).toEqual(operation.returnHttpError(400,
         'You cannot shorten the Url created from this service.'));
   });
 
@@ -61,7 +61,7 @@ describe('Unit test for shortenUrl', function() {
     const longUrl = 'https://www.youtube.com/watch?v=CDxFbuEwb001/2';
     const expireAt = 'hahaha';
     const result = await operation.shortenUrl(longUrl, expireAt);
-    expect(result).toEqual(operation.returnHttpError(422,
+    expect(result).toEqual(operation.returnHttpError(400,
         'The given expire time is not valid.'));
   });
 
