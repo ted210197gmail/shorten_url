@@ -31,10 +31,11 @@ describe('Unit test for shortenUrl', function() {
   it('Missing Url or expire time', async () => {
     const longUrl = 'https://www.youtube.com/watch?v=CDxFbuEwb001/2';
     const expireAt = '2021-02-08 09:20:41';
+    // case 1: missing the longUrl
     const result = await operation.shortenUrl(null, expireAt);
     expect(result).toEqual(
         operation.returnHttpError(400, 'Missing Url or expire time.'));
-
+    // case 2: missing the expired time
     const resultNoExpire = await operation.shortenUrl(longUrl, null);
     expect(resultNoExpire).toEqual(
         operation.returnHttpError(400, 'Missing Url or expire time.'));
@@ -67,7 +68,6 @@ describe('Unit test for shortenUrl', function() {
   it('Failed to insert data', async () => {
     const longUrl = 'https://www.youtube.com/watch?v=CDxFbuEwb001/2';
     const expireAt = '2021-02-08 09:20:41';
-
     dbService.insertData.mockImplementation(() => {
       throw new Error();
     });

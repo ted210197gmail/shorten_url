@@ -1,4 +1,4 @@
-const app = require('../../../lambda/url-shortener-post/index');
+const index = require('../../../lambda/url-shortener-post/index');
 const operation = require('../../../lambda/url-shortener-post/operation');
 
 describe('Unit test for exports handler', function () {
@@ -8,15 +8,15 @@ describe('Unit test for exports handler', function () {
 
     it('verifies successful response', async () => {
         const body = {
-            'url': 'https://www.youtube.com/watch?v=CDxFbuEwb001/2',
-            'expireAt': '2021-02-08 09:20:41',
+            'url': 'url_test',
+            'expireAt': 'expire_test',
         };
         const event = {
             'body': JSON.stringify(body),
         };
         const expectedBody = {
-            'url': 'expected url',
-            'expireAt': '2021-02-08 09:20:41',
+            'url': 'expected_url',
+            'expireAt': 'expected_time',
         };
         const expectedResult = {
             'statusCode': 200,
@@ -24,11 +24,11 @@ describe('Unit test for exports handler', function () {
             'body': JSON.stringify(expectedBody),
         };
         jest.spyOn(operation, 'shortenUrl').mockReturnValue(expectedResult);
-        const result = await app.handler(event);
+        const result = await index.handler(event);
         expect(result).toEqual(expectedResult);
     });
 
-    it('verifies the case that failed to get HTTP body', async () => {
+    it('verifies the case HTTP request has no body', async () => {
         const event = {
             'httpMethod': 'POST',
         };
@@ -37,8 +37,8 @@ describe('Unit test for exports handler', function () {
             'headers': { 'Content-Type': 'application/json' },
             'body': JSON.stringify({ 'message': 'The given HTTP body is invalid.' }),
         };
-        jest.spyOn(operation, 'shortenUrl').mockReturnValue(expectedResult);
-        const result = await app.handler(event);
+        jest.spyOn(operation, 'shortenUrl').mockReturnValue('');
+        const result = await index.handler(event);
         expect(result).toEqual(expectedResult);
     });
 });

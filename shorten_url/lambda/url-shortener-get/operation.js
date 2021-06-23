@@ -1,7 +1,3 @@
-module.exports = {
-    redirect,
-};
-
 const dbService = require('./rds.js');
 const DOMAIN_NAME = 'api.awstiny.com/r';
 
@@ -36,3 +32,7 @@ async function redirect(id) {
         };
     }
 }
+
+module.exports = {
+    redirect,
+};

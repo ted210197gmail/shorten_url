@@ -50,7 +50,6 @@ describe('Unit test for shortenUrl', function () {
             ' 1. The Url does not yet be registered in this service' +
             ' 2. The Url has been expired' +
             ' 3. The Url has been deleted');
-
         jest.spyOn(dbService, 'getLongUrl').mockReturnValue(null);
         const result = await operation.redirect(longUrl);
         expect(result).toEqual(expectedResult);

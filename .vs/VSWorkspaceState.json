@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\shorten_url",
+    "\\shorten_url\\lambda",
+    "\\shorten_url\\lambda\\url-shortener-delete",
+    "\\shorten_url\\lambda\\url-shortener-get",
+    "\\shorten_url\\lambda\\url-shortener-post",
+    "\\shorten_url\\tests",
+    "\\shorten_url\\tests\\unit",
+    "\\shorten_url\\tests\\unit\\url-shortener-delete.test",
+    "\\shorten_url\\tests\\unit\\url-shortener-get.test"
+  ],
+  "SelectedNode": "\\shorten_url\\tests\\unit\\url-shortener-get.test\\rds.test.js",
+  "PreviewInSolutionExplorer": false
+}

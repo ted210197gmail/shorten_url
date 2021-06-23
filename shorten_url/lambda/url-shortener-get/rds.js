@@ -1,7 +1,3 @@
-module.exports = {
-    getLongUrl,
-};
-
 const AWS = require("aws-sdk");
 AWS.config.update({ region: 'eu-west-1' });
 const rdsDataService = new AWS.RDSDataService();
@@ -31,10 +27,13 @@ async function getLongUrl(id) {
                 ${EXPIRE_TIME_COL} > CURRENT_TIMESTAMP`;
     let result = await executeSql(sql);
     if (result.records.length == 0) {
-        //return sql;
         return null;
     }
     else {
         return result.records[0][0].stringValue;
     }
 }
+
+module.exports = {
+    getLongUrl,
+};

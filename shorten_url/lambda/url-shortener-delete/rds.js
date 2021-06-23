@@ -1,12 +1,6 @@
-module.exports = {
-  checkDataExist,
-  deleteData,
-};
-
 const AWS = require('aws-sdk');
-AWS.config.update({ region: 'eu-west-1' });
+AWS.config.update({region: 'eu-west-1'});
 const rdsDataService = new AWS.RDSDataService();
-
 const DATABASE_NAME = 'shortenurldemo';
 const TABLE_NAME = 'shorten_url';
 const SHORT_URL_ID_COL = 'short_url_id';
@@ -35,15 +29,35 @@ async function executeSql(sqlCmd) {
   return await rdsDataService.executeStatement(sqlParams).promise();
 }
 
-async function checkDataExist(shortURLId) {
+/**
+ * Check if the correspondent data of given shorten url id exists.
+ *
+ * @param {string} id The given shorten url id.
+ * @return {string} The long url.
+ * @throws {Error} The error thrown by executeStatement. Please refer https://amzn.to/3gJWRmr.
+ */
+async function checkDataExist(id) {
   const sql = `SELECT COUNT(1) FROM ${TABLE_NAME} ` +
-    `WHERE ${SHORT_URL_ID_COL} = '${shortURLId}'`;
+    `WHERE ${SHORT_URL_ID_COL} = '${id}'`;
   const result = await executeSql(sql);
   return result.records[0][0].longValue == 1;
 }
 
-async function deleteData(shortURLId) {
+/**
+ * Delete the correspondent data of given shorten url id exists.
+ *
+ * @param {string} id The given shorten url id.
+ * @return {object} The object returned by RDS executeStatement.
+ * For more detail, please refer https://amzn.to/3gJWRmr.
+ * @throws {Error} The error thrown by executeStatement. Please refer https://amzn.to/3gJWRmr.
+ */
+async function deleteData(id) {
   const sql = `DELETE FROM ${TABLE_NAME} ` +
-   `WHERE ${SHORT_URL_ID_COL} = '${shortURLId}'`;
+   `WHERE ${SHORT_URL_ID_COL} = '${id}'`;
   return await executeSql(sql);
 }
+
+module.exports = {
+  checkDataExist,
+  deleteData,
+};

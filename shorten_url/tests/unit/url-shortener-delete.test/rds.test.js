@@ -6,7 +6,7 @@ describe('Unit test for checkDataExist', function() {
   });
 
   it('Verifies successful response - exist', async () => {
-    const id = 'existId';
+    const id = 'kq94y3qs';
     const result = await dbService.checkDataExist(id);
     expect(result).toEqual(true);
     jest.clearAllMocks();
@@ -25,7 +25,7 @@ describe('Unit test for deleteData', function () {
         jest.clearAllMocks();
     });
 
-    it('Verifies successful response', async () => {
+    it('Verifies successful response on not existing data', async () => {
         const id = 'not exist';
         const result = await dbService.deleteData(id);
         const expectedResult = {"generatedFields": [], "numberOfRecordsUpdated": 0};

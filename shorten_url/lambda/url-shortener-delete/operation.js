@@ -1,5 +1,12 @@
 const dbService = require('./rds');
 
+/**
+ * Return Http response with status code and proper message in body.
+ *
+ * @param {string} status The status code of Http response.
+ * @param {string} message The error message.
+ * @return {JSON Object} The HTTP response with status code and proper message.
+ */
 function returnHttpError(status, message) {
   return {
     statusCode: status,
@@ -8,6 +15,16 @@ function returnHttpError(status, message) {
   };
 }
 
+/**
+ * Delete the given Url and store the data into RDS
+ *
+ * @param {string} id The given shortened url id that is required to be deleted.
+ * @return {JSON Object} The HTTP response with status code as following,
+ * 400 - The shorten url id cannot be found in given url
+ * 500 - Internal error when accessing database
+ * 404 - The id does not exist in database.
+ * 200 - successfully delete the correspondent data.
+ */
 async function deleteUrl(id) {
   if (id == null) {
     return returnHttpError(400,

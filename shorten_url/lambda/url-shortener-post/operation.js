@@ -1,8 +1,3 @@
-module.exports = {
-  shortenUrl,
-  returnHttpError,
-};
-
 const dbService = require('./rds');
 const {URL, parse} = require('url');
 const DOMAIN_NAME = 'api.awstiny.com/t';
@@ -97,3 +92,8 @@ async function shortenUrl(longURL, expireAt) {
     body: JSON.stringify({'id': id, 'shorUrl': shortUrl}),
   };
 }
+
+module.exports = {
+    shortenUrl,
+    returnHttpError,
+};

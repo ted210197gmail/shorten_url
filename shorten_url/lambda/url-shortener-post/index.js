@@ -17,7 +17,7 @@ function getEventBody(event) {
 }
 
 exports.handler = async (event) => {
-  let body = ''; // TODO: what if the body.url not exist?
+  let body = '';
   try {
     body = getEventBody(event);
   } catch (err) {

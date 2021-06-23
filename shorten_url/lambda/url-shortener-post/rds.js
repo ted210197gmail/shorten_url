@@ -1,8 +1,3 @@
-module.exports = {
-  insertData,
-  executeSql,
-};
-
 const AWS = require('aws-sdk');
 AWS.config.update({region: 'eu-west-1'});
 const rdsDataService = new AWS.RDSDataService();
@@ -37,7 +32,6 @@ async function executeSql(sqlCmd) {
   return await rdsDataService.executeStatement(sqlParams).promise();
 }
 
-
 /**
  * Insert the data into RDS database
  *
@@ -57,3 +51,8 @@ async function insertData(longURL, shortURLId, expireAt) {
               `${EXPIRE_TIME_COL}='${expireAt}'`;
   return await executeSql(sql);
 }
+
+module.exports = {
+    insertData,
+    executeSql,
+};
