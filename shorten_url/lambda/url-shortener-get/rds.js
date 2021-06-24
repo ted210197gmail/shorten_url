@@ -4,14 +4,13 @@ const rdsDataService = new AWS.RDSDataService();
 
 const DATABASE_NAME = 'shortenurldemo';
 const TABLE_NAME = 'shorten_url';
+
 const LONG_URL_COL = 'long_url';
 const SHORT_URL_ID_COL = 'short_url_id';
 const EXPIRE_TIME_COL = 'expire_time';
-const DB_CLUSTER_ARN = 'arn:aws:rds:eu-west-1:145997657428' +
-    ':cluster:shortenurldemo';
-const DB_CRED_SECRET_STORE_ARN = 'arn:aws:secretsmanager:eu-west-1:' +
-    '145997657428:secret:rds-db-credentials/' +
-    'cluster-NWAXENSTTPLC7KFYY3X3XPRRHQ/admin-HZfsJA';
+
+const DB_CLUSTER_ARN = process.env.DB_CLUSTER_ARN;
+const DB_CRED_SECRET_STORE_ARN = process.env.DB_CRED_SECRET_STORE_ARN;
 
 /**
  * Execute RDS with given SQL command.

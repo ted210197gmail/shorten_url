@@ -18,7 +18,8 @@ function returnHttpError(status, message) {
 /**
  * Redirect to the page according to the given shortened id.
  *
- * @param {string} id The given shortened url id that is required for redirection.
+ * @param {string} id The given shortened url id
+ * that is required for redirection.
  * @return {JSON Object} The HTTP response with status code as following,
  * 400 - Failed to get id from given url.
  * 500 - Failed to get url from database.

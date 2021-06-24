@@ -36,7 +36,7 @@ For how to build and deploy, please refer the document I attached in the link pr
 ## Unit Test 
 The unit test engine is Jest 26.0.14. 
 
-It can't be run by just command - ```npm run test``` as the ARN for RDS connection ```DB_CLUSTER_ARN``` and ```DB_CRED_SECRET_STORE_ARN``` are hidden from public.
+It can't be run by command - ```npm run test``` as the ARN for RDS connection ```DB_CLUSTER_ARN``` and ```DB_CRED_SECRET_STORE_ARN``` are hidden from public.
 
 Please contact me if you are interested in running the unit test.
 
